@@ -2,3 +2,6 @@
 
 !k-medoids-clustering.ipynb
 !.gitignore
+!Gene-location-RandomForest.ipynb
+!predict.py
+!gene.py
