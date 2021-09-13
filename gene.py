@@ -132,7 +132,25 @@ def count_loyal_genes(data ,method = ''):
         i = i + 1
     return(Counter(df['factorize']))
    
-
+# plot cluster view
+# input: dataframe, chromosome index (not name), header of the cluster column 
+def cluster_pattern(df,crm,cluster='cluster'):
+    chromosomes = df['chromosome'].unique()
+    seq = list(df[df['chromosome'] == chromosomes[crm]][cluster])
+    flag = False
+    lines = {}
+    j = 0
+    for i in range(1,len(seq)):
+        if (seq[i] == seq[i-1]):
+            if flag == True:
+                lines[j].extend([seq[i]])
+            if flag == False:
+                flag = True
+                j = i -1
+                lines[j] = [seq[i-1],seq[i]]
+        else:
+            flag = False
+    return lines
 
 
 
